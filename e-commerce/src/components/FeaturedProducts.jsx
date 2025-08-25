@@ -7,7 +7,7 @@ export default function FeaturedProducts() {
   const [loading, setLoading] = useState(true);
 
   // define which product IDs are "featured"
-  const featuredIds = [1, 2, 3, 7, 10 , 12 , 18];  
+  const featuredIds = [1, 2, 3, 7, 10, 12, 18];  
 
   useEffect(() => {
     axios
@@ -25,15 +25,15 @@ export default function FeaturedProducts() {
 
   if (loading) {
     return (
-      <p className="text-center text-lg text-[#514A9D] mt-10 animate-pulse">
+      <p className="text-center text-lg text-[#514A9D] dark:text-[#24C6DC] mt-10 animate-pulse">
         Loading products...
       </p>
     );
   }
 
   return (
-    <div className="relative px-6 py-10">
-      <h1 className="text-4xl font-bold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-[#24C6DC] to-[#514A9D]">
+    <div className="relative px-6 py-10 dark:bg-gray-900">
+      <h1 className="text-4xl font-bold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-[#24C6DC] to-[#514A9D] dark:from-[#514A9D] dark:to-[#24C6DC]">
         Featured Products
       </h1>
 

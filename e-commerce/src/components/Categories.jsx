@@ -13,9 +13,9 @@ export default function Categories() {
   ];
 
   return (
-    <div className="relative px-6 py-12">
+    <div className="relative px-6 py-12 dark:bg-gray-900">
       {/* Title */}
-      <h1 className="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-[#6366F1] to-[#06B6D4]">
+      <h1 className="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-[#6366F1] to-[#06B6D4] dark:from-[#06B6D4] dark:to-[#6366F1]">
         Shop by Category
       </h1>
 
@@ -34,14 +34,14 @@ export default function Categories() {
             />
 
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent dark:from-black/70 dark:via-black/30 dark:to-black/0"></div>
 
             {/* Text */}
             <div className="absolute bottom-4 left-4">
               <h2 className="text-xl font-semibold text-white drop-shadow-lg">
                 {category.name}
               </h2>
-              <button className="mt-2 px-4 py-1 bg-gradient-to-r from-[#6366F1] to-[#06B6D4] text-white text-sm rounded-full shadow-md hover:opacity-90 transition">
+              <button className="mt-2 px-4 py-1 bg-gradient-to-r from-[#6366F1] to-[#06B6D4] dark:from-[#06B6D4] dark:to-[#6366F1] text-white text-sm rounded-full shadow-md hover:opacity-90 transition">
                 Explore
               </button>
             </div>
