@@ -1,6 +1,6 @@
 import React from 'react';
 import HeroImage from '../assets/undraw_shopping_a55o.svg';
-
+console.log(React.version)
 export default function Herosection() {
   return (
     <div className="relative w-full min-h-screen flex items-center justify-center dark:bg-gray-900">
