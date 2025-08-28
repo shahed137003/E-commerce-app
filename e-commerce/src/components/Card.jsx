@@ -12,7 +12,7 @@ export default function Card({ product }) {
   const handleFavorite = () => {
  if (isFavorite) {
 setFavoriteItems(favoriteItems.filter((item)=>item.id!==product.id))
-isFavorite =false
+setFavoriteItems(false)
  }
     else {
       setFavoriteItems([...favoriteItems, product]);
