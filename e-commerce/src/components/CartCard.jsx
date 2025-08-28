@@ -1,18 +1,25 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 import { CartContext } from '../context/CartData';
 
 export default function CartCard({ product }) {
   const [cartItems, setCartItems] = useContext(CartContext);
-  const [quantity, setQuantity] = useState(1);
+
+  
+  const cartItem = cartItems.find((item) => item.id === product.id);
+  const quantity = cartItem?.quantity || 1;
 
   const handleRemove = () => {
-    setCartItems(cartItems.filter(item => item.id !== product.id));
+    setCartItems(cartItems.filter((item) => item.id !== product.id));
   };
 
   const handleQuantityChange = (e) => {
     const value = Math.max(1, parseInt(e.target.value) || 1);
-    setQuantity(value);
+    setCartItems(
+      cartItems.map((item) =>
+        item.id === product.id ? { ...item, quantity: value } : item
+      )
+    );
   };
 
   return (
@@ -34,12 +41,12 @@ export default function CartCard({ product }) {
       {/* Product Info */}
       <div className="flex-1 text-center sm:text-left z-10">
         <h2 className="font-bold text-lg text-[#514A9D] dark:text-[#24C6DC] line-clamp-2 
-                       overflow-hidden overflow-ellipsis whitespace-normal hover:text-[#24C6DC] dark:hover:text-[#514A9D] transition-colors duration-300">
+                       hover:text-[#24C6DC] dark:hover:text-[#514A9D] transition-colors duration-300">
           {product.title}
         </h2>
         <p className="text-sm text-gray-500 dark:text-gray-400 mt-1 truncate">{product.category}</p>
         <p className="font-extrabold text-xl text-gray-800 dark:text-gray-200 mt-2 transition-all duration-300 hover:text-[#24C6DC] dark:hover:text-[#514A9D]">
-          ${product.price * quantity}
+          ${ (product.price * quantity).toFixed(2) }
         </p>
       </div>
 
@@ -51,7 +58,7 @@ export default function CartCard({ product }) {
           min="1"
           value={quantity}
           onChange={handleQuantityChange}
-          className="w-12 p-2 rounded-xl border border-gray-300 dark:border-gray-600 text-center
+          className="w-14 p-2 rounded-xl border border-gray-300 dark:border-gray-600 text-center
                      focus:outline-none focus:ring-2 focus:ring-[#24C6DC] dark:focus:ring-[#514A9D]
                      transition-all duration-300 hover:scale-105 m-1"
         />
@@ -60,7 +67,7 @@ export default function CartCard({ product }) {
         <button
           onClick={handleRemove}
           className="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full shadow-md
-                     hover:shadow-xl transition-all duration-300 flex items-center justify-center transform hover:scale-110  mr-3"
+                     hover:shadow-xl transition-all duration-300 flex items-center justify-center transform hover:scale-110 mr-3"
         >
           <FaTrashAlt />
         </button>

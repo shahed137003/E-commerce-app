@@ -3,7 +3,7 @@ import jewelery from "../assets/jewelery.jpg";
 import man from "../assets/man.jpg";
 import women from "../assets/women.jpg";
 import electronics from "../assets/electronics.jpg";
-
+import { useNavigate } from "react-router-dom";
 export default function Categories() {
   const categories = [
     { name: "Men's Clothing", img: man },
@@ -11,6 +11,7 @@ export default function Categories() {
     { name: "Electronics", img: electronics },
     { name: "Jewelery", img: jewelery },
   ];
+const navigate = useNavigate();
 
   return (
     <div className="relative px-6 py-12 dark:bg-gray-900">
@@ -41,7 +42,9 @@ export default function Categories() {
               <h2 className="text-xl font-semibold text-white drop-shadow-lg">
                 {category.name}
               </h2>
-              <button className="mt-2 px-4 py-1 bg-gradient-to-r from-[#6366F1] to-[#06B6D4] dark:from-[#06B6D4] dark:to-[#6366F1] text-white text-sm rounded-full shadow-md hover:opacity-90 transition">
+              <button className="mt-2 px-4 py-1 bg-gradient-to-r from-[#6366F1] to-[#06B6D4] dark:from-[#06B6D4] dark:to-[#6366F1] text-white text-sm rounded-full shadow-md hover:opacity-90 transition"
+              onClick={()=>navigate(`/category/${category.name}`)}
+              >
                 Explore
               </button>
             </div>

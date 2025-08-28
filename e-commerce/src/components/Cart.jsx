@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../context/CartData';
 import CartCard from './CartCard';
+import { useNavigate } from 'react-router-dom';
 
 export default function Cart() {
   const [cartItems] = useContext(CartContext);
+  const navigate =useNavigate()
 
   return (
     <div className="relative px-6 pt-24 pb-16 min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-500">
@@ -45,7 +47,10 @@ export default function Cart() {
         <div className="mt-12 flex justify-center">
           <button className="bg-gradient-to-r from-[#24C6DC] to-[#514A9D] dark:from-[#514A9D] dark:to-[#24C6DC] 
                              text-white font-semibold px-8 py-3 rounded-2xl shadow-lg hover:shadow-xl 
-                             transform hover:scale-105 transition-all duration-300">
+                             transform hover:scale-105 transition-all duration-300"
+                             
+                             onClick={()=>navigate('/checkout')}
+                             >
             Proceed to Checkout
           </button>
         </div>

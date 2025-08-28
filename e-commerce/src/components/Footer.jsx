@@ -26,10 +26,10 @@ export default function Footer() {
         <div className="space-y-2">
           <h3 className="font-semibold text-lg dark:text-[#514A9D]">Quick Links</h3>
           <ul className="text-sm space-y-1">
-            <li><a href="#home" className="hover:underline">Home</a></li>
-            <li><a href="#shop" className="hover:underline">Shop</a></li>
-            <li><a href="#about" className="hover:underline">About Us</a></li>
-            <li><a href="#contact" className="hover:underline">Contact</a></li>
+            <li><a href="" className="hover:underline">Home</a></li>
+            <li><a href="/shop" className="hover:underline">Shop</a></li>
+            <li><a href="/about" className="hover:underline">About Us</a></li>
+            <li><a href="/contact" className="hover:underline">Contact</a></li>
           </ul>
         </div>
 

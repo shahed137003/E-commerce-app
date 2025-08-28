@@ -37,9 +37,16 @@ export default function Shop() {
 
   if (loading) {
     return (
-      <p className="text-center text-lg text-[#514A9D] dark:text-[#24C6DC] mt-10 animate-pulse">
-        Loading products...
-      </p>
+<div className="flex flex-col items-center justify-center mt-20 space-y-4 h-screen bg-gray-100 dark:bg-gray-900">
+  {/* Spinner Circle */}
+  <div className="w-12 h-12 border-4 border-t-[#24C6DC] border-b-[#514A9D] border-gray-300 dark:border-gray-700 rounded-full animate-spin"></div>
+
+  {/* Loading Text */}
+  <p className="text-center text-[#24C6DC] dark:text-[#514A9D] text-lg sm:text-xl font-semibold animate-pulse">
+    Loading products...
+  </p>
+</div>
+
     );
   }
 
