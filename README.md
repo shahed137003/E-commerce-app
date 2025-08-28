@@ -29,5 +29,5 @@ The project is fully responsive, styled with **TailwindCSS**, and supports **dar
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/<your-username>/<your-repo>.git
+   git clone https://github.com/shahed137003/Velora-E-commerce-app.git
    cd <your-repo>
