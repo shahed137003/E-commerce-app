@@ -35,7 +35,7 @@ if (loading) return <FullPageSpinner />;
  <Navbar></Navbar>
       <Routes>
         <Route
-          path="/"
+          path="/Velora-E-commerce-app"
           element={
             <>
            <Herosection></Herosection>
@@ -54,6 +54,11 @@ if (loading) return <FullPageSpinner />;
                 <Route path="/about" element={<AboutSection />} />
                 <Route path="/checkout" element={<Checkout />} />
                  <Route path="/search/:title" element={<Search />} />
+                 <Route path="/" element={   <>
+           <Herosection></Herosection>
+           <FeaturedProducts></FeaturedProducts>
+           <Categories></Categories>
+           </>} />
       </Routes>
 <Footer></Footer>
 
