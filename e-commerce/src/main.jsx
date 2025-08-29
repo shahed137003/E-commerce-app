@@ -7,15 +7,16 @@ import './index.css';
 import App from './App.jsx';
 import React from 'react';
 import UserData from './context/userData.jsx';
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-    <UserData>
-      <CartData>
-        <FavoriteProvider>
-          <App />
-        </FavoriteProvider>
-      </CartData>
+    <BrowserRouter basename="/Velora-E-commerce-app">
+      <UserData>
+        <CartData>
+          <FavoriteProvider>
+            <App />
+          </FavoriteProvider>
+        </CartData>
       </UserData>
     </BrowserRouter>
   </StrictMode>
