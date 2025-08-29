@@ -1,6 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom'; // <-- use HashRouter
 import { FavoriteProvider } from './context/FavoriteData.jsx';
 import CartData from './context/CartData.jsx'; 
 import './index.css';
@@ -10,7 +10,7 @@ import UserData from './context/userData.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename="/Velora-E-commerce-app">
+    <HashRouter>
       <UserData>
         <CartData>
           <FavoriteProvider>
@@ -18,6 +18,6 @@ createRoot(document.getElementById('root')).render(
           </FavoriteProvider>
         </CartData>
       </UserData>
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>
 );

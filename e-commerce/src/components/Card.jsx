@@ -3,27 +3,36 @@ import { FaShoppingCart, FaHeart } from "react-icons/fa";
 import FavoriteData from '../context/FavoriteData';
 import { CartContext } from '../context/CartData';
 import { useNavigate } from 'react-router-dom';
+
 export default function Card({ product }) {
   const [favoriteItems, setFavoriteItems] = useContext(FavoriteData);
   const [cartItems, setCartItems] = useContext(CartContext);
-  const isInCart = cartItems.some(item => item.id === product.id);
+  const navigate = useNavigate();
+
   const isFavorite = favoriteItems.some(item => item.id === product.id);
-  const navigate =useNavigate()
+
+  // Toggle favorite status
   const handleFavorite = () => {
- if (isFavorite) {
-setFavoriteItems(favoriteItems.filter((item)=>item.id!==product.id))
-setFavoriteItems(false)
- }
-    else {
+    if (isFavorite) {
+      setFavoriteItems(favoriteItems.filter(item => item.id !== product.id));
+    } else {
       setFavoriteItems([...favoriteItems, product]);
-     
     }
   };
-const handleCart = () => {
-  if (!cartItems.find((item) => item.id === product.id)) {
-    setCartItems([...cartItems, { ...product, quantity: 1 }]);
-  }
-};
+
+  // Add to cart or increment quantity
+  const handleCart = () => {
+    const itemInCart = cartItems.find(item => item.id === product.id);
+    if (itemInCart) {
+      setCartItems(
+        cartItems.map(item =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+    }
+  };
 
   return (
     <div className="
@@ -47,13 +56,12 @@ const handleCart = () => {
           className={`absolute top-3 right-3 rounded-full p-2 shadow-md transition duration-300 
             ${isFavorite 
               ? 'bg-[#24C6DC] dark:bg-[#514A9D]' 
-              : 'bg-white dark:bg-gray-700 hover:bg-[#24C6DC]'}`
-          }
+              : 'bg-white dark:bg-gray-700 hover:bg-[#24C6DC]'}`}
           onClick={handleFavorite}
         >
           <FaHeart
             className={`text-xl transition duration-300 ${
-              isFavorite ? 'text-white' : 'text-[#514A9D] dark:text-[#24C6DC] group-hover:text-white'
+              isFavorite ? 'text-white' : 'text-[#514A9D] dark:text-[#24C6DC]'
             }`}
           />
         </button>
@@ -82,9 +90,9 @@ const handleCart = () => {
       </p>
 
       {/* View Details */}
-      <button className="w-full mt-4 py-2 bg-gradient-to-r from-[#24C6DC] to-[#514A9D] dark:from-[#514A9D] dark:to-[#24C6DC] text-white font-semibold rounded-full shadow-md hover:scale-105 hover:shadow-xl transition duration-300"
-      onClick={()=>navigate(`/itemDetails/${product.id}`)}
-      
+      <button
+        className="w-full mt-4 py-2 bg-gradient-to-r from-[#24C6DC] to-[#514A9D] dark:from-[#514A9D] dark:to-[#24C6DC] text-white font-semibold rounded-full shadow-md hover:scale-105 hover:shadow-xl transition duration-300"
+        onClick={() => navigate(`/itemDetails/${product.id}`)}
       >
         View Details
       </button>
