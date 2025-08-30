@@ -1,7 +1,12 @@
-# 🛍️ E-Commerce Website
+# 🛍️ Velora E-Commerce Website
 
 A modern **React + Vite** based e-commerce frontend project featuring product listings, categories, favorites, cart management, and checkout flow.  
 The project is fully responsive, styled with **TailwindCSS**, and supports **dark mode**.
+
+---
+
+## 🌍 Live Demo
+👉 [Velora E-Commerce App](https://shahed137003.github.io/Velora-E-commerce-app/)
 
 ---
 
@@ -12,16 +17,18 @@ The project is fully responsive, styled with **TailwindCSS**, and supports **dar
 - 🛍️ Shopping cart with add/remove items  
 - 💳 Checkout page  
 - 🌙 Dark/Light mode toggle  
-- 📱 Responsive design  
+- 📱 Fully responsive design  
 
 ---
 
 ## 📦 Tech Stack
-- **React** (with Hooks & Context API)  
-- **Vite** (fast build tool)  
-- **Tailwind CSS** (utility-first styling)  
-- **React Router** (navigation)  
-- **React Icons** (icons library)  
+- **React 18** (with Hooks & Context API)  
+- **Vite 7** (fast build tool)  
+- **Tailwind CSS 4** (utility-first styling)  
+- **React Router v6** (client-side navigation)  
+- **Lucide Icons + React Icons** (icon libraries)  
+- **Framer Motion** (animations)  
+- **React Toastify** (notifications)  
 
 ---
 
@@ -30,4 +37,4 @@ The project is fully responsive, styled with **TailwindCSS**, and supports **dar
 1. **Clone the repo**
    ```bash
    git clone https://github.com/shahed137003/Velora-E-commerce-app.git
-   cd <your-repo>
+   cd Velora-E-commerce-app
